@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .back {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ffa500;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .back:hover {
+            background-color: #ff8c00;
+        }
+
+        /* Стили для всплывающего окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        /* Кнопки навигации */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+        .prev:hover, .next:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Галерея</h1>
+    <div class="gallery">
+        <img src="bmwm5.jpg" alt="BMW M5" onclick="openModal(this)">
+        <img src="1.jpg" alt="1" onclick="openModal(this)">
+        <img src="2.jpg" alt="2" onclick="openModal(this)">
+        <img src="3.jpg" alt="3" onclick="openModal(this)">
+        <img src="4.jpg" alt="4" onclick="openModal(this)">
+        <img src="5.jpg" alt="5" onclick="openModal(this)">
+        <img src="6.jpg" alt="6" onclick="openModal(this)">
+        <img src="7.jpg" alt="7" onclick="openModal(this)">
+        <img src="8.jpg" alt="8" onclick="openModal(this)">
+        <img src="9.jpg" alt="9" onclick="openModal(this)">
+        <img src="10.jpg" alt="10" onclick="openModal(this)">
+        <img src="11.jpg" alt="11" onclick="openModal(this)">
+        <img src="12.jpg" alt="12" onclick="openModal(this)">
+        <img src="13.jpg" alt="13" onclick="openModal(this)">
+        <img src="14.jpg" alt="14" onclick="openModal(this)">
+        <img src="15.jpg" alt="15" onclick="openModal(this)">
+        <img src="16.jpg" alt="16" onclick="openModal(this)">
+        <img src="17.jpg" alt="17" onclick="openModal(this)">
+        <img src="18.jpg" alt="18" onclick="openModal(this)">
+        <img src="19.jpg" alt="19" onclick="openModal(this)">
+        <img src="20.jpg" alt="20" onclick="openModal(this)">
+        <img src="21.jpg" alt="21" onclick="openModal(this)">
+    </div>
+    <a href="index.html" class="back">Назад на главную</a>
+
+    <!-- Всплывающее окно -->
+    <div class="modal" id="modal">
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img id="modal-img">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".gallery img");
+        
+        function openModal(img) {
+            const modal = document.getElementById("modal");
+            const modalImg = document.getElementById("modal-img");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+
+            // Определяем индекс текущего изображения
+            currentIndex = Array.from(images).indexOf(img);
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("modal-img").src = images[currentIndex].src;
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("modal-img").src = images[currentIndex].src;
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (document.getElementById("modal").style.display === "flex") {
+                if (event.key === "ArrowRight") {
+                    nextImage();
+                } else if (event.key === "ArrowLeft") {
+                    prevImage();
+                } else if (event.key === "Escape") {
+                    closeModal();
+                }
+            }
+        });
+
+        // Закрытие модального окна при клике вне изображения
+        document.getElementById("modal").addEventListener("click", function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
