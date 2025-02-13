@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовок</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #858280;
+            border-bottom: 1px solid #ddd;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 70px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text span {
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        .logo-text i {
+            font-size: 0.9em;
+        }
+        .contact {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .contact span, .contact a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #ffa500;
+            display: flex;
+            align-items: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6d6b69;
+            padding: 10px 20px;
+        }
+        .menu-links {
+            display: flex;
+            justify-content: left;
+            flex-grow: 1;
+        }
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .menu-links a:hover {
+            text-decoration: underline;
+        }
+        .consult-button {
+            padding: 8px 15px;
+            background-color: #ffa500;
+            color: white;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: auto;
+        }
+        .consult-button:hover {
+            background-color: #ff8c00;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+        #главная {
+            position: relative;
+            background: url('bmwm5.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            
+            text-align: center;
+            color: white;
+        }
+        #главная::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #главная .content {
+            position: relative;
+            z-index: 1;
+        }
+        #главная h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        #главная p {
+            font-size: 1.2em;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.jpg" alt="Логотип">
+            <div class="logo-text">
+                <span>CARMENTOR</span>
+                <i>Автоподбор Car-mentor г. Уфа | Башкортостан</i>
+            </div>
+        </div>
+        <div class="contact">
+            <span>+7 996 102 26 26</span>
+            <a href="mailto:car-mentor@yandex.ru">car-mentor@yandex.ru</a>
+            <a href="https://vk.com/avtopodbor192" target="_blank">ВКонтакте</a>
+        </div>
+    </header>
+    <nav class="menu">
+        <div class="menu-links">
+            <a href="#главная">ГЛАВНАЯ</a>
+            <a href="#методы">НАШИ МЕТОДЫ</a>
+            <a href="#о-компании">О КОМПАНИИ</a>
+        </div>
+        <button class="consult-button">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</button>
+    </nav>
+    <section id="главная">
+        <div class="content">
+            <h1>Мы предлагаем</h1>
+            <p>Автоподбор машин по городу Уфа и Республике Башкортостан</p>
+            <p>Хотите записаться прямо сейчас, напишите нам в ВК:</p>
+            <a href="https://vk.com/avtopodbor192" class="btn">НАПИСАТЬ</a>
+        </div>
+    </section>
+    <section id="методы">
+        <h1>Наши методы</h1>
+        <p>Описание методов...</p>
+    </section>
+    <section id="о-компании">
+        <h1>О компании</h1>
+        <p>Информация о компании...</p>
+    </section>
+</body>
+</html>
