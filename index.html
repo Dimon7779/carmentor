@@ -84,10 +84,28 @@
             </iframe>
         </div>
         <div class="partner-card">
-            <span>Партнерская карта</span>
+            <span>Карта предприятия</span>
             <a href="partnercard.pdf" download class="download-btn">СКАЧАТЬ</a>
         </div>
     </section>
-    
+    <button id="scrollTopBtn">▲</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let scrollTopBtn = document.getElementById("scrollTopBtn");
+        
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 300) { // Показывать кнопку после прокрутки 300px
+                    scrollTopBtn.style.display = "block";
+                } else {
+                    scrollTopBtn.style.display = "none";
+                }
+            });
+        
+            scrollTopBtn.addEventListener("click", function() {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+        </script>
+        
 </body>
 </html>
